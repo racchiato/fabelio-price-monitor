@@ -58,11 +58,15 @@ After setting up the database, run this command to migrate the database:
 To run the server, use this command
 'php artisan serve'
 
+## Controller Documentation
+
+You can read the Controller Documentation [here](https://github.com/racchiato/fabelio-price-monitor/blob/master/Controller.md)
+
 ## Problems found in Developing the App
 
     - There are 3 test cases inside the 'ExampleTest.php', and there might have been a bug on the 'ChromeDriver' in Laravel Dusk where it mostly failed to create POST request to the server. I tried to google and do the workaround found, but still no changes.
     - I haven't fully followed the best design pattern for Laravel MVC. For example, as you can see in the controller, there are code rewritings especially in the 'addProduct' function about creating price and image instance. Tried to put the function in the Model, but apparently it wasn't really working well
-
+    - Still a really simple validations rule, I couldn't make on time.
 
 
 
