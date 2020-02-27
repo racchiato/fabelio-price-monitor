@@ -1,78 +1,72 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+## About This Project
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+This project was made for the fullfillment of back-end engineer test provided by [Fabelio](https://www.fabelio.com). The demo of this project can be found [HERE](http://salty-mesa-33948.herokuapp.com/)
 
-## About Laravel
+## Tools/Framework Used
+    - Laravel 6
+    - Boostrap CSS
+    - ChartJS
+    - Postgre SQL
+    - Laravel Dusk for Testing
+    - SublimeLinter and PHPCS
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Coding Standard
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+The coding standard is PHP PSR-2.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## How to Deploy in your local machine
 
-## Learning Laravel
+###### Clone this github repo
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+You can use the command 'git clone https://github.com/racchiato/fabelio-price-monitor.git' in your terminal to clone this project
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+###### Install Composer Dependencies
 
-## Laravel Sponsors
+Make sure you have installed Composer first. You can read it [here](https://getcomposer.org/download/). And afterwards, go to the project directory and use command
+'composer install'
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+###### Install NPM Dependencies
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+Make sure you have installed NPM first. You can read it [here](https://www.npmjs.com/get-npm). And afterwards, go to the project directory and use command
+'npm install'
 
-## Contributing
+###### Create a copy of .env file
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+.env files are not generally committed to source control for security reasons. Laravel provided sample .env file in the root directory. You can make your own by using this command in terminal
+'cp .env.example .env'
 
-## Code of Conduct
+###### Generate Application Key
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+To run, Laravel needs some sort of application key. After making the .env file, use this command to generate a new key for the project in your machine
+'php artisan key:generate'
 
-## Security Vulnerabilities
+###### Create Database
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Since I'm using PostgreSQL, create a new empty PostgreSQL database in your local machine.
 
-## License
+###### Configure the Database
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+After making a new database, you can edit the database connection setting (user, server, port, db name) in your own .env file. Afterwards, change the pgsql database configuration in 'config/database.php' to your own database connection setting written in the .env file. To call the .env value, you can access it using 'env('VARIABLE_NAME')'. More about it [here](https://laravel.com/docs/6.x/database#configuration)
+
+###### Run Migration
+
+After setting up the database, run this command to migrate the database:
+'php artisan migrate'
+
+###### Run Server
+
+To run the server, use this command
+'php artisan serve'
+
+## Problems found in Developing the App
+
+    - There are 3 test cases inside the 'ExampleTest.php', and there might have been a bug on the 'ChromeDriver' in Laravel Dusk where it mostly failed to create POST request to the server. I tried to google and do the workaround found, but still no changes.
+    - I haven't fully followed the best design pattern for Laravel MVC. For example, as you can see in the controller, there are code rewritings especially in the 'addProduct' function about creating price and image instance. Tried to put the function in the Model, but apparently it wasn't really working well
+
+
+
+
+
+
+
+
